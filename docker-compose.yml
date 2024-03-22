@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+
+  db1:
+    image: mysql:8.3.0
+    command: --default-authentication-plugin=caching_sha2_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: strongDBPassword!
+      MYSQL_DATABASE: ClaimPortal
+      MYSQL_USER: cpdbadmin
+      MYSQL_PASSWORD: strongPassword!
+    volumes:
+     - ./db1/data:/var/lib/mysql
+    ports:
+     - 3306:3306
+
+  db2:
+    image: mysql:8.3.0
+    command: --default-authentication-plugin=caching_sha2_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: strongDBPassword!
+      MYSQL_DATABASE: ClaimPortal
+      MYSQL_USER: cpdbadmin
+      MYSQL_PASSWORD: strongPassword!
+    volumes:
+     - ./db2/data:/var/lib/mysql
+    ports:
+     - 3307:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
