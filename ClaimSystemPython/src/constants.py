@@ -1,0 +1,1 @@
+DATABASE_URL = "mysql+pymysql://cpdbadmin:strongPassword!@127.0.0.1:3307/ClaimPortal?charset=utf8mb4"
