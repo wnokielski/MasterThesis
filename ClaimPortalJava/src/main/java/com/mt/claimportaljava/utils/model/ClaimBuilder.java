@@ -18,7 +18,6 @@ public class ClaimBuilder {
     private ClaimNumberGenerator claimNumberGenerator;
 
     public ClaimBuilder() {
-        this.claim = new Claim();
     }
 
     @Autowired
@@ -27,6 +26,7 @@ public class ClaimBuilder {
     }
 
     public void withDataFromDto(CreateClaimDto createClaimDto) {
+        this.claim = new Claim();
         PolicyBuilder policyBuilder = new PolicyBuilder();
         policyBuilder.withDataFromDto(createClaimDto.getPolicy());
 
